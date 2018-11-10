@@ -62,18 +62,6 @@ var app = angular.module('Braniac', [
           }
         }
       })
-            .state('add-admin', {
-        url: '/add-admin',
-        controller: 'AuthCtrl as authCtrl',
-        templateUrl: 'auth/add-admin.html',
-        resolve: {
-          auth: function($state, Auth) {
-            return Auth.$requireSignIn().catch(function() {
-              $state.go('home'); // redirect to home page if not authenticated
-            });
-          }
-        }
-      })
       .state('groups', {
         url: '/groups',
         controller: 'GroupsCtrl as groupsCtrl',
@@ -96,11 +84,6 @@ var app = angular.module('Braniac', [
             });
           }
         }
-      })
-      .state('groups.create', {
-        url: '/create', //it will actually be groups/create, because it is a groups' child
-        controller: 'GroupsCtrl as groupsCtrl',
-        templateUrl: 'groups/createGroups.html'
       })
       .state('groups.messages', {
         url: '/{groupId}/messages',
