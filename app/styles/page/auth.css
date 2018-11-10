@@ -1,7 +1,7 @@
 .auth-content {
   margin-right: auto;
   margin-left: auto;
-  margin-top: 150px;
+  /*margin-top: 150px;*/
 }
 
 .send-button {
@@ -15,4 +15,12 @@
 
 .form-content {
   padding: 40px 0;
+}
+
+a h1 h2 p {
+  font-family: 'Rubik';
+}
+
+body {
+    background-color: lightblue;
 }

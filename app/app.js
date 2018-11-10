@@ -69,7 +69,7 @@ var app = angular.module('Braniac', [
       })
       .state('questionForm', {
         url: '/form',
-        controller: 'FormCtrl as formCtrl',
+        controller: 'DashboardCtrl as dashboardCtrl',
         templateUrl: 'dashboard/questionForm.html'
       })
       .state('profile', {
