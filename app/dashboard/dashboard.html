@@ -7,28 +7,28 @@
         <form ng-submit="$event.preventDefault()">
           <p>Use <code>md-autocomplete</code> to search for matches from local or remote data sources.</p>
           <md-autocomplete
-              ng-disabled="DashboardCtrl.isDisabled"
-              md-no-cache="DashboardCtrl.noCache"
-              md-selected-item="DashboardCtrl.selectedItem"
-              md-search-text-change="DashboardCtrl.searchTextChange(DashboardCtrl.searchText)"
-              md-search-text="DashboardCtrl.searchText"
-              md-selected-item-change="DashboardCtrl.selectedItemChange(item)"
-              md-items="item in DashboardCtrl.querySearch(DashboardCtrl.searchText)"
+              ng-disabled="dashboardCtrl.isDisabled"
+              md-no-cache="dashboardCtrl.noCache"
+              md-selected-item="dashboardCtrl.selectedItem"
+              md-search-text-change="dashboardCtrl.searchTextChange(dashboardCtrl.searchText)"
+              md-search-text="dashboardCtrl.searchText"
+              md-selected-item-change="dashboardCtrl.selectedItemChange(item)"
+              md-items="item in dashboardCtrl.querySearch(dashboardCtrl.searchText)"
               md-item-text="item.display"
               md-min-length="0"
               placeholder="What is your favorite US state?">
             <md-item-template>
-              <span md-highlight-text="DashboardCtrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+              <span md-highlight-text="dashboardCtrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
             </md-item-template>
             <md-not-found>
-              No states matching "{{DashboardCtrl.searchText}}" were found.
-              <a ng-click="DashboardCtrl.newState(DashboardCtrl.searchText)">Create a new one!</a>
+              No states matching "{{dashboardCtrl.searchText}}" were found.
+              <a ng-click="dashboardCtrl.newState(dashboardCtrl.searchText)">Create a new one!</a>
             </md-not-found>
           </md-autocomplete>
           <br/>
-          <md-checkbox ng-model="DashboardCtrl.simulateQuery">Simulate query for results?</md-checkbox>
-          <md-checkbox ng-model="DashboardCtrl.noCache">Disable caching of queries?</md-checkbox>
-          <md-checkbox ng-model="DashboardCtrl.isDisabled">Disable the input?</md-checkbox>
+          <md-checkbox ng-model="dashboardCtrl.simulateQuery">Simulate query for results?</md-checkbox>
+          <md-checkbox ng-model="dashboardCtrl.noCache">Disable caching of queries?</md-checkbox>
+          <md-checkbox ng-model="dashboardCtrl.isDisabled">Disable the input?</md-checkbox>
 
           <p>By default, <code>md-autocomplete</code> will cache results when performing a query.  After the initial call is performed, it will use the cached results to eliminate unnecessary server requests or lookup logic. This can be disabled above.</p>
         </form>
@@ -39,16 +39,16 @@
         <md-card-title class="my-info-card" layout="row" layout-align="center center">
           <!--Create a new group button -->
        <div class="group-create">
-         <md-button layout="row" layout-align="left center" herf="/groups/questionForm.html" class="md-raised md-primary" >
+         <md-button layout="row" layout-align="left center" ui-sref="questionForm" class="md-raised md-primary" >
            <i class="material-icons">add</i> New group
          </md-button>
        </div>
           <!-- <md-card-title-media layout-align="left center"></md-card-title-media> -->
           <md-card-title-text layout-align="center center">
-            <span class="md-headline" ng-class="{online: DashboardCtrl.profile.online}">{{ groupsDashboardCtrl.profile.displayName }}</span>
+            <span class="md-headline" ng-class="{online: dashboardCtrl.profile.online}">{{ dashboardCtrl.profile.displayName }}</span>
             <md-card-actions layout="row" layout-align="center center" flex>
               <md-button ui-sref="profile" class="md-small md-primary"> Edit Profile</md-button>
-              <md-button href="#" ng-click="DashboardCtrl.logout()" class="md-small md-primary">Logout</md-button>
+              <md-button href="#" ng-click="dashboardCtrl.logout()" class="md-small md-primary">Logout</md-button>
             </md-card-actions>
           </md-card-title-text>
         </md-card-title>

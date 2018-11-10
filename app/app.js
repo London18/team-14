@@ -64,20 +64,15 @@ var app = angular.module('Braniac', [
       })
       .state('dashboard', {
         url: '/dashboard',
-        controller: 'DashboardCtrl as DashboardCtrl',
+        controller: 'DashboardCtrl as dashboardCtrl',
         templateUrl: 'dashboard/dashboard.html',
       })
       .state('questionForm', {
         url: '/form',
-        controller: 'FormCtrl as FormCtrl',
-        templateUrl: 'groups/questionForm.html',
-        resolve: {
-          groups: function(Groups) {
-            return Groups.$loaded();
-          },
-        }
+        controller: 'FormCtrl as formCtrl',
+        templateUrl: 'dashboard/questionForm.html'
       })
-        .state('profile', {
+      .state('profile', {
           url: '/profile',
           controller: 'ProfileCtrl as profileCtrl',
           templateUrl: 'users/profile.html',
