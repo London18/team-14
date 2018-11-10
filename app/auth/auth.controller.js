@@ -46,8 +46,8 @@ app.controller('AuthCtrl', function($state, $firebaseArray, Auth) {
    *
    */
   authCtrl.register = function() {
-      Auth.$createUserWithEmailAndPassword(authCtrl.user.email, authCtrl.user.password).then(function(user) {
-        authCtrl.login();
+      Auth.$createUserWithEmailAndPassword(authCtrl.user.email, authCtrl.user.password).then(function(auth) {
+        $state.go('profile');
       }, function(error) {
         authCtrl.error = error;
       });
