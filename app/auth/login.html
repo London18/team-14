@@ -1,12 +1,13 @@
 <!-- Login into the app page. /login -->
-<div class="login-page">
+<div class="login-page" style="text-align:center; padding-top:40px">
+  <h1 class="md-display-3">Login Page</h1>
   <!-- Content that contains KclConnect logo, input field for email and password and login button -->
   <div class="auth-content">
     <!-- Set the content central -->
-    <div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+    <div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4" style="margin-left: 35%">
       <form role="form" ng-submit="authCtrl.login()">
         <!-- Input field for admin mail -->
-        <div class="form-content" layout-align="center center">
+        <div class="form-content">
           <md-input-container class="data-input md-block" flex-gt-sm>
             <label>Email</label>
             <input required type="email" ng-model="authCtrl.user.email">
