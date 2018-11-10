@@ -1,0 +1,57 @@
+<!-- Base page for combining main funtionality of the platform. /groups -->
+<div class="main" ng-cloak>
+  <h2 class="md-display-3">Brainaic Search</h2>
+  <section flex>
+    <div class="my-info">
+      <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title class="my-info-card" layout="row" layout-align="center center">
+          <!--Create a new group button -->
+       <div class="group-create">
+         <md-button layout="row" layout-align="left center" ui-sref="questionForm" class="md-raised md-primary" >
+           <i class="material-icons">add</i> Question
+         </md-button>
+       </div>
+          <!-- <md-card-title-media layout-align="left center"></md-card-title-media> -->
+          <md-card-title-text layout-align="center center">
+            <span class="md-headline" ng-class="{online: dashboardCtrl.profile.online}">{{ dashboardCtrl.profile.displayName }}</span>
+            <md-card-actions layout="row" layout-align="center center" flex>
+              <md-button ui-sref="profile" class="md-middle md-primary"> Edit Profile</md-button>
+              <md-button href="#" ng-click="dashboardCtrl.logout()" class="md-middle md-primary">Logout</md-button>
+            </md-card-actions>
+          </md-card-title-text>
+        </md-card-title>
+      </md-card>
+    </div>
+  </section>
+  <section flex>
+    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+
+    <!-- Search Bar -->
+      <md-content class="md-padding">
+        <form ng-submit="$event.preventDefault()">
+          <md-autocomplete
+              ng-disabled="dashboardCtrl.isDisabled"
+              md-no-cache="dashboardCtrl.noCache"
+              md-selected-item="dashboardCtrl.selectedItem"
+              md-search-text-change="dashboardCtrl.querySearch(dashboardCtrl.searchText)"
+              md-search-text="dashboardCtrl.searchText"
+              md-selected-item-change="dashboardCtrl.selectedItemChange(item)"
+              md-items="item in dashboardCtrl.querySearch(dashboardCtrl.searchText)"
+              md-item-text="item.display"
+              md-min-length="0"
+              placeholder="What is your question?">
+            <md-item-template>
+                <span md-highlight-text="dashboardCtrl.searchText" md-highlight-flags="^i">{{item}}</span>
+            </md-item-template>
+            <md-not-found>
+              No questions matching "{{dashboardCtrl.searchText}}" were found.
+              <a ng-click="dashboardCtrl.newState(dashboardCtrl.searchText)">Create a new one!</a>
+            </md-not-found>
+          </md-autocomplete>
+          <br/>
+        </form>
+      </md-content>
+    </md-card>
+
+  </section>
+</div>
