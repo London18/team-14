@@ -30,18 +30,14 @@
       <md-content class="md-padding">
         <form ng-submit="$event.preventDefault()">
           <md-autocomplete
-              ng-disabled="dashboardCtrl.isDisabled"
-              md-no-cache="dashboardCtrl.noCache"
-              md-selected-item="dashboardCtrl.selectedItem"
-              md-search-text-change="dashboardCtrl.querySearch(dashboardCtrl.searchText)"
               md-search-text="dashboardCtrl.searchText"
               md-selected-item-change="dashboardCtrl.selectedItemChange(item)"
               md-items="item in dashboardCtrl.querySearch(dashboardCtrl.searchText)"
-              md-item-text="item.display"
+              md-item-text="item.Question"
               md-min-length="0"
               placeholder="What is your question?">
             <md-item-template>
-                <span md-highlight-text="dashboardCtrl.searchText" md-highlight-flags="^i">{{item}}</span>
+                <span md-text="dashboardCtrl.searchText" md-highlight-flags="^i">{{item.Question}}</span>
             </md-item-template>
             <md-not-found>
               No questions matching "{{dashboardCtrl.searchText}}" were found.
@@ -50,6 +46,17 @@
           </md-autocomplete>
           <br/>
         </form>
+      </md-content>
+    </md-card>
+
+    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+      <md-content class="md-padding">
+        Tags:
+        {{dashboardCtrl.selectedItem.Tags}}
+      </md-content>
+      <md-content class="md-padding">
+        Answer:
+        {{dashboardCtrl.selectedItem.Answer}}
       </md-content>
     </md-card>
 
