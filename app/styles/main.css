@@ -1,0 +1,56 @@
+body {
+  padding: 0;
+}
+
+.main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.page-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+.page-header {
+  background: #e31d1a;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-img {
+  width: 10%;
+  height: 10%;
+  text-align: center;
+  padding: 15px;
+}
+
+.md-block {
+  font-size: 14px;
+}
+
+.login-register {
+  height: 70%;
+  background-color: #fff;
+}
+
+.opened-dialog {
+  width: 1000px;
+  font-size: 16px;
+}
+
+.logo-avatar {
+  width: 50%;
+  height: 50%;
+}
+
+.logo-wrapper {
+  text-align: center;
+}

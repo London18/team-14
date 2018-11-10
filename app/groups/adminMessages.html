@@ -1,0 +1,37 @@
+<!--Admin chat send and display messages page. /{uid}/messages/direct-->
+<div class="messages-wrap" layout="column">
+  <!--Page header with admin name -->
+  <div class="header">
+    <h1>{{ messagesCtrl.adminName  }}</h1>
+  </div>
+  <!--List will all messages. Author and timestamp are attached to a message-->
+  <md-content class="messages-list">
+    <md-list flex>
+      <md-list-item ng-repeat="message in messagesCtrl.messages" layout-gt-sm="row">
+        <i class="material-icons">person_outline</i>
+        <div class="message-info">
+          <div class="message-admin">
+            {{ message.body }}
+          </div>
+          <div layout-gt-sm="row">
+            <div class="user-name"> Posted by {{ groupsCtrl.getDisplayName(message.uid) }} on <span class="timestamp">{{ message.timestamp | date:'short' }}</span></div>
+          </div>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-content>
+  <!--Form that contains input field for message and send button. You can send plain text-->
+  <form class="message-form-admin" ng-submit="messagesCtrl.sendMessage()">
+    <div class="md-inline-form" md-theme="default" layout-padding>
+      <div layout-gt-sm="column">
+        <md-input-container class="message-text md-block" flex-gt-sm>
+          <label>Type a message</label>
+          <textarea required ng-model="messagesCtrl.message" rows="4" md-no-resize md-no-autogrow md-select-on-focus></textarea>
+        </md-input-container>
+        <md-content layout="row" layout-align="end center" style="background-color: white">
+          <md-button type="submit" class="md-raised md-primary md-block">Send</md-button>
+        </md-content>
+      </div>
+    </div>
+  </form>
+</div>

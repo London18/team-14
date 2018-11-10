@@ -1,0 +1,105 @@
+.message-pane .message-wrap {
+  box-shadow: 5px 10px inset;
+}
+
+.announcement {
+  margin: 0;
+}
+
+.message {
+  margin: 0;
+}
+
+.title {
+  margin-right: 800px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.message-pane {
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+}
+
+.message-pane .header {
+  width: 100%;
+  z-index: 2;
+  padding: 0px 20px;
+}
+
+.message-pane .header h1 {
+  padding: 12px 0 10px 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 24px;
+  color: #555459;
+  font-weight: 900;
+}
+
+.announcementForm {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 100%;
+}
+
+.message-form-admin {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 100%;
+}
+
+.message-pane .message-wrap {
+  position: relative;
+  margin-top: 15px;
+}
+
+.message-pane .message-wrap .message-info {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 5px;
+}
+
+.message-info {
+  padding: 5px 20px;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.message-pane .message-wrap .message-info .user-name {
+  color: #555459;
+  font-weight: 900;
+}
+
+.message-pane .message-wrap .message-info .user-name span {
+  color: #ccc;
+  font-weight: normal;
+  font-size: 10px;
+}
+
+.messages-wrap {
+  height: 100%;
+}
+
+.message-text {
+  margin-bottom: 0;
+}
+
+.announcements-list {
+  height: 39%;
+  padding: 0px 20px;
+}
+
+.messages-list {
+  height: 72%;
+  padding: 0px 20px;
+}
+
+.message-admin {
+  font-size: 18px;
+}

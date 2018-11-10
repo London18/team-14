@@ -1,0 +1,47 @@
+<!--Create a new group page. /groups/create -->
+<div layout="column" layout-align="center">
+  <md-content class="md-padding" layout-padding>
+    <form class="createGroupForm" ng-submit="groupsCtrl.createGroup()">
+      <div layout-gt-sm="column" layout-padding>
+        <h1 class="headline">Create a group</h1>
+        <!--Input field for group name-->
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Group Name</label>
+          <input required ng-model="groupsCtrl.newGroup.name">
+          <div ng-messages="exampleForm.userLastName.$error">
+            <div ng-message="required">Give me a name!</div>
+          </div>
+        </md-input-container>
+        <!--Input filed for student memebers. It allows to paste a list of students separated by blank space-->
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Add Students'email addresses (paste your list of students here)</label>
+          <textarea required id="emails" ng-model="groupsCtrl.studentEmails" rows="7" md-no-resize md-no-autogrow md-select-on-focus></textarea>
+          <div ng-messages="exampleForm.userLastName.$error">
+            <div ng-message="required">Please add at least one student !</div>
+          </div>
+        </md-input-container>
+        <!--Input field for admin members. Implements autocomplete funtion-->
+        <md-chips ng-model="groupsCtrl.adminEmails" class="md-block" md-removable="groupsCtrl.removable">
+          <md-autocomplete ng-disabled="groupsCtrl.isDisabled" md-no-cache="groupsCtrl.noCache" md-selected-item="groupsCtrl.selectedItem" md-search-text-change="groupsCtrl.searchTextChange(groupsCtrl.searchText)" md-search-text="groupsCtrl.searchText" md-selected-item-change="groupsCtrl.selectedItemChange(item)"
+            md-items="item in groupsCtrl.querySearch(groupsCtrl.searchText)" md-item-text="item" md-min-length="0" placeholder="Search for an admin">
+            <md-item-template>
+              <span md-highlight-text="groupsCtrl.searchText" md-highlight-flags="^i">{{item}}</span>
+            </md-item-template>
+            <md-not-found>
+              No states matching "{{groupsCtrl.searchText}}" were found.
+              <a ng-click="groupsCtrl.newState(groupsCtrl.searchText)">Create a new one!</a>
+            </md-not-found>
+          </md-autocomplete>
+          <!-- Visualise the options you click on -->
+          <md-chip-template>
+            <span>{{$chip}}</span>
+          </md-chip-template>
+        </md-chips>
+      </div>
+      <!-- Create group button -->
+      <div class="create-button">
+        <md-button type="submit" class="md-raised md-primary">Create</md-button>
+      </div>
+    </form>
+  </md-content>
+</div>

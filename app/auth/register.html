@@ -1,0 +1,33 @@
+<!-- Register as a new admin. /register -->
+<div class="page-wrapper">
+  <!-- Content that contains KclConnect logo, input fields for eamil and password and register button -->
+  <div class="auth-content">
+    <!-- Set the content central -->
+    <div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+      <form ng-submit="authCtrl.register()">
+        <!-- Input field for the new admin email -->
+        <div class="form-content" layout-align="center center">
+          <md-input-container class="data-input md-block" flex-gt-sm>
+            <label>Email</label>
+            <input required type="email" ng-model="authCtrl.user.email">
+            <div ng-messages="projectForm.clientName.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          <!-- Input field for the new admin password -->
+          <md-input-container class="data-input md-block" flex-gt-sm>
+            <label>Password</label>
+            <input required type="password" ng-model="authCtrl.user.password">
+            <div ng-messages="projectForm.clientName.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+        </div>
+        <!-- Register button -->
+        <div class="send-button">
+          <md-button type="submit" class="md-raised">Register</md-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

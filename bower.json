@@ -1,0 +1,18 @@
+{
+  "name": "Braniac",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "bootstrap": "3.3.4",
+    "angularfire": "~2.1.0",
+    "angular-ui-router": "~0.3.2",
+    "angular-md5": "~0.1.10",
+    "angular-mocks": "^1.6.9",
+    "angular-aria": "^1.6.9",
+    "angular-animate": "^1.6.9",
+    "angular-material": "^1.1.8",
+    "firebase": "^4.12.0"
+  },
+  "appPath": "app",
+  "moduleName": "Braniac"
+}

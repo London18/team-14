@@ -1,0 +1,13 @@
+.input-group {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 150px;
+}
+
+.edit-button {
+  text-align: center;
+}
+
+.data-input {
+  box-shadow: none;
+}
