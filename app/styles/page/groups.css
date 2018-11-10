@@ -181,10 +181,10 @@ md-toolbar .md-button.md-fab {
   display: none;
 }
 
-.groups-welcome {
+.welcome {
   padding: 25px;
 }
 
-.groups-welcome h1 {
+.welcome h1 {
   font-size: 34px;
 }

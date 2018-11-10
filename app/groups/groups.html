@@ -1,82 +1,24 @@
 <!-- Base page for combining main funtionality of the platform. /groups -->
 <div class="main" layout="column" ng-cloak>
-  <section layout="row" flex>
-    <md-content class="groups-welcome" ng-class="{'invisible': groupsCtrl.invisibleTitle === true}" layout="column" layout-align="center center">
-      <h1>Welcome! Toggle the sidenav to create a new group or access existing ones</h1>
-    </md-content>
-    <md-sidenav flex md-component-id='left' class="md-sidenav-left" md-whiteframe="4">
-      <!--Set toolbar of sidenav-->
-      <md-toolbar class="md-theme-indigo" layout="row" layout-align="center center">
-        <h1 class="md-toolbar-tools"><a class="logo-title" ui-sref="groups"
-          ng-click="groupsCtrl.toggleLeft(); groupsCtrl.invisibleTitle = false;">KCL-Connect</a></h1>
-        <md-button class="md-fab md-primary close-btn" ng-click="groupsCtrl.toggleLeft()">
-          <i class="material-icons">clear</i>
-        </md-button>
-      </md-toolbar>
-      <!-- Set user info fotter with add-admin, update profile and logot button -->
+  <section layout="column" flex>
+    <md-content class="welcome" layout="row" layout-align="center center">
+      <h1 class="md-toolbar-tools"><a class="logo-title" ui-sref="groups"
+        ng-click="groupsCtrl.home">Brainiac Logo</a></h1>
       <div class="my-info">
-        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-          <md-card-title class="my-info-card" layout="row" layout-align="center center">
-            <!-- <md-card-title-media layout-align="left center"></md-card-title-media> -->
-            <md-card-title-text layout-align="center center">
-              <span class="md-headline" ng-class="{online: groupsCtrl.profile.online}">{{ groupsCtrl.profile.displayName }}</span>
-              <md-card-actions layout="row" layout-align="center center" flex>
-                <md-button ui-sref="add-admin" class="md-small md-primary"> Add admin</md-button>
-                <md-button ui-sref="profile" class="md-small md-primary"> Edit Profile</md-button>
-                <md-button href="#" ng-click="groupsCtrl.logout()" class="md-small md-primary">Logout</md-button>
-              </md-card-actions>
-            </md-card-title-text>
-          </md-card-title>
-        </md-card>
-      </div>
-      <div class="group-list">
-        <!-- Groups -->
-        <md-content class="group-list">
-          <md-list flex>
-            <md-subheader class="md-no-sticky">Groups</md-subheader>
-            <md-list-item class="md-3-line" ng-repeat="group in groupsCtrl.groups" ng-if="groupsCtrl.checkEmailInGroup(group.adminMembers, groupsCtrl.profile.email)" ui-sref="groups.messages({ groupId: group.$id })" ui-sref-active="selected" ng-click="groupsCtrl.toggleLeft(); groupsCtrl.invisibleTitle = true;">
-              <i class="material-icons md-avatar people">people_outline</i>
-              <div class="md-list-item-text" layout="column">
-                <h3>&nbsp{{ group.name }}</h3>
-              </div>
-              <md-button class="md-fab md-mini md-accent" ng-if="groupsCtrl.checkEmailInGroup(group.adminMembers, groupsCtrl.profile.email)" ng-click="groupsCtrl.groups.$remove(group)" aria-label="Use Android">
-                <i class="material-icons">delete</i>
-              </md-button>
-              <md-divider></md-divider>
-            </md-list-item>
-          </md-list>
-        </md-content>
-        <!--Create a new group button -->
-        <div class="group-create">
-          <md-button layout="row" layout-align="left center" ui-sref="groups.create" class="md-raised md-primary" ng-click="groupsCtrl.toggleLeft(); groupsCtrl.invisibleTitle = true;">
-            <i class="material-icons">add</i> New group
-          </md-button>
-        </div>
-        <!-- Admin Chat -->
-        <md-content>
-          <md-list flex>
-            <md-subheader class="md-no-sticky">Admin Chat</md-subheader>
-            <md-list-item class="md-3-line" ng-repeat="user in groupsCtrl.users" ng-if="user.$id !== groupsCtrl.profile.$id" ui-sref="groups.direct({uid: user.$id})" ui-sref="selected" ng-click="groupsCtrl.toggleLeft(); groupsCtrl.invisibleTitle = true;">
-              <i class="material-icons md-avatar people">person_outline</i>
-              <span class="presence" ng-class="{online: user.online}"></span>
-              <div class="md-list-item-text" layout="column">
-                <p>&nbsp{{ user.displayName }}</p>
-              </div>
-              <md-divider></md-divider>
-            </md-list-item>
-          </md-list>
-        </md-content>
-      </div>
-
-    </md-sidenav>
-    <!-- Handle too small screen -->
-    <md-content class="message-pane md-inline-form ng-scope" layout="column">
-      <ui-view></ui-view>
-      <div>
-        <md-button ng-click="groupsCtrl.toggleLeft()" class="md-primary open-sidenav-btn">
-          Toggle Sidenav
-        </md-button>
+      <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title class="my-info-card" layout="row" layout-align="center center">
+          <md-card-title-text layout-align="center center">
+            <span class="md-headline" ng-class="{online: groupsCtrl.profile.online}">{{ groupsCtrl.profile.displayName }}</span>
+            <md-card-actions layout="row" layout-align="center center" flex>
+              <md-button ui-sref="profile" class="md-small md-primary"> Edit Profile</md-button>
+              <md-button href="#" ng-click="groupsCtrl.logout()" class="md-small md-primary">Logout</md-button>
+            </md-card-actions>
+          </md-card-title-text>
+        </md-card-title>
+      </md-card>
       </div>
     </md-content>
+
+  
   </section>
 </div>

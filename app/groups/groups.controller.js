@@ -62,7 +62,9 @@ app.controller('GroupsCtrl', function($state, $firebaseArray, Auth, Users, Stude
     });
   };
 
-  groupsCtrl.invisibleTitle = false;
+  groupsCtrl.home = function() {
+      $state.go('home');
+  };
 
   groupsCtrl.buildToggler = function(componentId) {
     return function() {
@@ -74,35 +76,6 @@ app.controller('GroupsCtrl', function($state, $firebaseArray, Auth, Users, Stude
   groupsCtrl.toggleLeft = groupsCtrl.buildToggler('left');
   groupsCtrl.toggleRight = groupsCtrl.buildToggler('right');
 
-  /**
-   * @name addMembers
-   * @methodOf groups.controller:GroupsCtrl
-   * @description
-   *
-   * Convert string into an array of emails
-   *
-   * @param {string} emails
-   * @returns {Array.{string}} list of  students
-   */
-  groupsCtrl.addMembers = function(emails) {
-    var actualMembers = [];
-
-    if (typeof(emails) === 'string') { // if a string is pasted here we convert it into a list of emails
-      emails = emails.replace(/\n/g, ' ').split(' ');
-      for (var i = 0; i < emails.length; i++) {
-        actualMembers.push(emails[i]);
-      }
-    } else { // check which of the possibleMembers are also in our database
-      for (var i = 0; i < emails.length; i++) {
-        for (var j = 0; j < groupsCtrl.users.length; j++) {
-          if (emails[i] === groupsCtrl.users[j].email) {
-            actualMembers.push(groupsCtrl.users[j]);
-          }
-        }
-      }
-    }
-    return actualMembers;
-  };
 
   /**
    * @name checkEmailInGroup
@@ -119,27 +92,6 @@ app.controller('GroupsCtrl', function($state, $firebaseArray, Auth, Users, Stude
     return members.filter(function(arr) {
       return arr.email === email;
     }).length > 0;
-  };
-
-  /**
-   * @name createGroup
-   * @methodOf groups.controller:GroupsCtrl
-   * @description
-   *
-   * Add a new group to the in the database
-   *
-   */
-  groupsCtrl.createGroup = function() {
-    groupsCtrl.groups.$add({
-      name: groupsCtrl.newGroup.name,
-      studentMembers: groupsCtrl.addMembers(groupsCtrl.studentEmails),
-      adminMembers: groupsCtrl.addMembers(groupsCtrl.adminEmails).concat([groupsCtrl.profile]) // add the creator of the group as admin
-    }).then(function(ref) {
-      $state.go('groups.messages', {
-        groupId: ref.key
-      });
-    });
-    groupsCtrl.availableUsers = groupsCtrl.users; // re-initialise the available users
   };
 
   /**
