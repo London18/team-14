@@ -66,7 +66,6 @@ var app = angular.module('Braniac', [
         url: '/dashboard',
         controller: 'DashboardCtrl as DashboardCtrl',
         templateUrl: 'dashboard/dashboard.html',
-
       })
       .state('questionForm', {
         url: '/form',
