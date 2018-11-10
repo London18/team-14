@@ -65,6 +65,7 @@
   font-size: 1.5rem;
   display: block;
   padding-bottom: 2rem;
+  font-family: 'Rubik';
 }
 
 @media(max-width:960px) {
@@ -99,4 +100,8 @@
 .front-page-btn:active {
   position: relative;
   top: 1px;
+}
+
+a {
+  font-family: 'Rubik';
 }

@@ -1,6 +1,6 @@
 <!-- Base page for combining main funtionality of the platform. /groups -->
 <div class="main" ng-cloak>
-  <h2 class="md-display-3">Brainaic Search</h2>
+  <h2 class="md-display-2" style="font-family: 'Rubik'">Brainaic Search</h2>
   <section flex>
     <div class="my-info">
       <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
@@ -14,7 +14,7 @@
           <!-- <md-card-title-media layout-align="left center"></md-card-title-media> -->
           <md-card-title-text layout-align="center center">
             <span class="md-headline" ng-class="{online: dashboardCtrl.profile.online}">{{ dashboardCtrl.profile.displayName }}</span>
-            <md-card-actions layout="row" layout-align="center center" flex>
+            <md-card-actions layout="row" style="margin-left:auto; margin-right:0;" flex>
               <md-button ui-sref="profile" class="md-middle md-primary"> Edit Profile</md-button>
               <md-button href="#" ng-click="dashboardCtrl.logout()" class="md-middle md-primary">Logout</md-button>
             </md-card-actions>

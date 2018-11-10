@@ -2,6 +2,7 @@ body {
   padding: 0;
 }
 
+
 .main {
   position: absolute;
   top: 0;
@@ -53,4 +54,14 @@ body {
 
 .logo-wrapper {
   text-align: center;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+a {
+  font-family: 'Rubik';
 }

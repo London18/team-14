@@ -16,3 +16,11 @@
 .form-content {
   padding: 40px 0;
 }
+
+a h1 h2 p {
+  font-family: 'Rubik';
+}
+
+body {
+    background-color: lightblue;
+}
