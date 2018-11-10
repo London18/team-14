@@ -1,11 +1,9 @@
-app.controller('DemoCtrl', function($state,$timeout, $q, $log) {
-  var groupsCtrl = this;
+app.controller('DashboardCtrl', function(Dashboard, $state, $timeout, $q, $log) {
   var self = this;
 
     self.simulateQuery = false;
     self.isDisabled    = false;
-
-    // list of `state` value/display objects
+    
     self.states        = loadAll();
     self.querySearch   = querySearch;
     self.selectedItemChange = selectedItemChange;
