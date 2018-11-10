@@ -12,30 +12,19 @@
 
        <md-input-container md-no-float class="md-block">
          <label>Question</label>
-         <input ng-model="self.newQuestion.question">
+         <input ng-model="dashboardCtrl.newQuestion.question">
        </md-input-container>
 
        <md-input-container class="md-block">
          <label>Answer</label>
-         <input ng-mod  el="self.newQuestion.answer" >
+         <input ng-model="dashboardCtrl.newQuestion.answer" >
        </md-input-container>
 
-      <md-chips ng-model="dashboardCtrl.tags" class="md-block" md-removable="dashboardCtrl.removable">
-        <md-autocomplete ng-disabled="dashboardCtrl.isDisabled" md-no-cache="dashboardCtrl.noCache" md-selected-item="dashboardCtrl.selectedItem" md-search-text-change="dashboardCtrl.searchTextChange(dashboardCtrl.searchText)" md-search-text="dashboardCtrl.searchText" md-selected-item-change="dashboardCtrl.selectedItemChange(item)"
-          md-items="item in dashboardCtrl.querySearch(dashboardCtrl.searchText)" md-item-text="item" md-min-length="0" placeholder="Search for an admin">
-          <md-item-template>
-            <span md-highlight-text="dashboardCtrl.searchText" md-highlight-flags="^i">{{item}}</span>
-          </md-item-template>
-          <md-not-found>
-            No states matching "{{dashboardCtrl.searchText}}" were found.
-            <a ng-click="dashboardCtrl.newState(dashboardCtrl.searchText)">Create a new one!</a>
-          </md-not-found>
-        </md-autocomplete>
+       <md-input-container class="md-block">
+         <label>Tags</label>
+         <input ng-model="dashboardCtrl.newQuestion.tags" >
+       </md-input-container>
 
-        <md-chip-template>
-          <span>{{$chip}}</span>
-        </md-chip-template>
-      </md-chips>
         <md-button type="submit" class="md-raised md-primary">Create</md-button>
        </div>
    </div>
