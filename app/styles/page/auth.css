@@ -1,0 +1,18 @@
+.auth-content {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 150px;
+}
+
+.send-button {
+  text-align: center;
+}
+
+.data-input {
+  padding: 8px 0;
+  box-shadow: none;
+}
+
+.form-content {
+  padding: 40px 0;
+}
