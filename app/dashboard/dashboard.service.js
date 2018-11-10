@@ -8,9 +8,9 @@
  * @requires $firebaseArray
  * @return {Array.<Object>} array of objects under the groups table
  */
-app.factory('Groups', function($firebaseArray) {
-  var ref = firebase.database().ref('groups');
-  var groups = $firebaseArray(ref);
+app.factory('Dashboard', function($firebaseArray) {
+  var ref = firebase.database().ref('Questions');
+  var questions = $firebaseArray(ref);
 
-  return groups;
+  return questions;
 });

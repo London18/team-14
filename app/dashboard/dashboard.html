@@ -2,7 +2,7 @@
 <div class="main" layout="column" ng-cloak>
   <section layout="row" flex>
     <!-- Search Bar -->
-    <div ng-controller="DemoCtrl as ctrl" layout="column" ng-cloak>
+    <div layout="column" ng-cloak>
       <md-content class="md-padding">
         <form ng-submit="$event.preventDefault()">
           <p>Use <code>md-autocomplete</code> to search for matches from local or remote data sources.</p>
@@ -37,6 +37,12 @@
     <div class="my-info">
       <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
         <md-card-title class="my-info-card" layout="row" layout-align="center center">
+          <!--Create a new group button -->
+       <div class="group-create">
+         <md-button layout="row" layout-align="left center" herf="/groups/questionForm.html" class="md-raised md-primary" >
+           <i class="material-icons">add</i> New group
+         </md-button>
+       </div>
           <!-- <md-card-title-media layout-align="left center"></md-card-title-media> -->
           <md-card-title-text layout-align="center center">
             <span class="md-headline" ng-class="{online: groupsCtrl.profile.online}">{{ groupsCtrl.profile.displayName }}</span>
