@@ -25,7 +25,7 @@ app.controller('ProfileCtrl', function($state, md5, auth, profile) {
   profileCtrl.updateProfile = function() {
     profileCtrl.profile.email = auth.email;
     profileCtrl.profile.$save().then(function() {
-      $state.go('groups');
+      $state.go('home');
     });
   };
 
