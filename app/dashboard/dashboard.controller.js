@@ -33,6 +33,7 @@ app.controller('DashboardCtrl', function(Dashboard, Auth,$scope, $mdDialog, $sta
    };
 
     self.querySearch = function(query) {
+      if(query === "") return [];
       var results = query ? self.questions.filter( createFilterFor(query) ) : self.questions;
       console.log(results)
       return results;
