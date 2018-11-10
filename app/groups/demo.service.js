@@ -1,6 +1,6 @@
 'use strict';
 /**
- * @name groups.service:Groups
+ * @name demo.service:Demo
  * @description
  *
  * Returns an array of object with all the entries under the groups table
@@ -8,9 +8,9 @@
  * @requires $firebaseArray
  * @return {Array.<Object>} array of objects under the groups table
  */
-app.factory('Groups', function($firebaseArray) {
-  var ref = firebase.database().ref('groups');
-  var groups = $firebaseArray(ref);
+app.factory('Demo', function($firebaseArray) {
+  var ref = firebase.database().ref('Questions');
+  var questions = $firebaseArray(ref);
 
-  return groups;
+  return questions;
 });
