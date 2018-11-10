@@ -1,28 +1,52 @@
-app.controller('DashboardCtrl', function(Dashboard, $state, $timeout, $q, $log) {
+app.controller('DashboardCtrl', function(Dashboard, Auth, $state, $timeout, $q, $log) {
   var self = this;
 
     self.simulateQuery = false;
     self.isDisabled    = false;
-    
+    self.questions = Dashboard.getArray();
+
     self.states        = loadAll();
     self.querySearch   = querySearch;
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
 
-    self.newState = newState;
 
-    function newState(state) {
-      alert("Sorry! You'll need to create a Constitution for " + state + " first!");
-    }
+    self.logout = function() {
+      self.profile.online = null;
+      self.profile.$save().then(function() {
+        Auth.$signOut().then(function() {
+          $state.go('home');
+        });
+      });
+    };
 
-    // ******************************
-    // Internal methods
-    // ******************************
+    self.newQuestion = {
+      question: '',
+      answer: '',
+      tags: ''
+    };
 
-    /**
-     * Search for states... use $timeout to simulate
-     * remote dataservice call.
-     */
+    self.createEntry = function() {
+       self.questions.$add({
+         Answer: self.newQuestion.answer,
+         Question: self.newQuestion.question,
+         Tags: self.newQuestion.tags
+       }).then(function(ref) {
+         $state.go('dashboard');
+       });
+       self.availableUsers = self.users; // re-initialise the available users
+   };
+
+   function addToArray () {
+     var array = []
+     for (var i = 0; i < self.questions.length; i++) {
+       arrray.push(self.questions[i])
+     }
+     return array
+    };
+
+    console.log(addToArray())
+
     function querySearch (query) {
       var results = query ? self.states.filter( createFilterFor(query) ) : self.states,
           deferred;
@@ -47,13 +71,7 @@ app.controller('DashboardCtrl', function(Dashboard, $state, $timeout, $q, $log) 
      * Build `states` list of key/value pairs
      */
     function loadAll() {
-      var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
-              Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
-              Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana,\
-              Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina,\
-              North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina,\
-              South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia,\
-              Wisconsin, Wyoming';
+      var allStates = ""
 
       return allStates.split(/, +/g).map( function (state) {
         return {
